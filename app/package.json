@@ -1,1 +1,7 @@
-{ "name": "jenkins-github-migration-demo", "version": "1.0.0", "scripts": { "start": "node server.js", "test": "node test.js" }, "dependencies": { "express": "^5.1.0" } }
+{ "name": "jenkins-github-migration-demo", 
+  "version": "1.0.0", 
+  "scripts": {
+    "start": "node server.js", 
+    "test": "node test.js" }, 
+  "dependencies": { "express": "^5.1.0" } 
+}
