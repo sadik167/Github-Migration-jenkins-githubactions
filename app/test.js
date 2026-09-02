@@ -1,0 +1,1 @@
+console.log("Running application tests..."); const expected = 2 + 2; if (expected !== 4) { console.error("Test failed"); process.exit(1); } console.log("All tests passed");

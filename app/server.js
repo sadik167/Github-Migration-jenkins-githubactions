@@ -1,0 +1,1 @@
+const express = require("express"); const app = express(); const port = 8080; app.get("/", (req, res) => { res.send("Hello from Jenkins -> GitHub Actions Migration Demo"); }); app.get("/health", (req, res) => { res.status(200).json({ status: "UP" }); }); app.listen(port, () => { console.log(`Application running on port ${port}`); });
