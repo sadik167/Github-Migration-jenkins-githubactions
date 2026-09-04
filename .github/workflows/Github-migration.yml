@@ -99,7 +99,7 @@ jobs:
             echo "current status : $STATUS"
           done
           
-          if [[ "$STATUS"!= "Success" ]]; then
+          if [[ "$STATUS" != "Success" ]]; then
             echo "SSM Deployment failed with status : $STATUS"
             aws ssm list-command-invocations --command-id "$COMMAND_ID" --details --query \
             "CommandInvocations[*].CommandPlugins[*].{Output:Output,Status:Status}" --output json
