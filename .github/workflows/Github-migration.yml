@@ -33,10 +33,10 @@ jobs:
       - name: Install dependencies
         uses: chill-viking/npm-ci@latest
         with:
-          working-directory: app
+          working_directory: app
         
       - name: Run Tests
-        working-directory: app
+        working_directory: app
         run: npm test
         
       - name: Configure AWS credentials
