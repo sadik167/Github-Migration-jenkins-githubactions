@@ -12,7 +12,7 @@ permissions:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: github-migration
+  ECR_REPOSITORY: github-actions-migration-role
   IMAGE_TAG: ${{github.sha}}
   
 jobs:
