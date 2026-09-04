@@ -83,11 +83,11 @@ jobs:
           --instance-ids "$EC2_INSTANCE_ID" \
           --document-name "AWS-RunShellScript" \
           --parameters commands="[
-          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $REGISTRY \,
-          docker pull $REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \,
-          docker stop app || true \,
-          docker rm app || true \,
-          docker run -d --name app -p8099:8080 $REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          \"aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $REGISTRY \",
+          \"docker pull $REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \",
+          \"docker stop app || true \",
+          \"docker rm app || true \",
+          \"docker run -d --name app -p8099:8080 $REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG\"
           ]" --query "Command.CommandId" --output text)
           
           echo "SSM COMMAND : $COMMAND_ID"
@@ -99,7 +99,7 @@ jobs:
             echo "current status : $STATUS"
           done
           
-          if [[ "$STATUS"! = "Success" ]]; then
+          if [[ "$STATUS"!= "Success" ]]; then
             echo "SSM Deployment failed with status : $STATUS"
             aws ssm list-command-invocations --command-id "$COMMAND_ID" --details --query \
             "CommandInvocations[*].CommandPlugins[*].{Output:Output,Status:Status}" --output json
